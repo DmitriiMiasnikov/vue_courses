@@ -1,25 +1,22 @@
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>урок 1 vue</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-
-    <div class='container pt-5'>
-      <div class='card center'>
-        <h1>Счетчик: 0</h1>
+    <div class="container pt-5" id="app">
+      <div class="card center">
+        <h1>{{ title }}: {{ counter }}</h1>
         <div>
-          <button class="btn primary">
-            Добавить
-          </button>
-          <button class="btn danger">
-            Вычесть
-          </button>
+          <button class="btn primary" v-on:click="counter++" >Добавить</button>
+          <button class="btn danger" v-on:click="counter--">Вычесть</button>
         </div>
       </div>
     </div>
 
     <script src="https://unpkg.com/vue@next"></script>
-    <script src="app.js" ></script>
+    <script src="app.js"></script>
   </body>
 </html>
