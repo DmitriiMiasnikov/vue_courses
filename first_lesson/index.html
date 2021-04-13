@@ -8,13 +8,17 @@
   <body>
     <div class="container" id="app">
       <div class="card">
-        <h1>{{ title }}</h1>
+        <h1
+          :style="{color: inputValue.length < 5 ? 'blue' : 'grey', 
+          fontSize: inputValue.length < 3 ? '2rem' : '3rem' }"
+        >
+          {{ title }}
+        </h1>
         <div class="form-control">
           <input
             type="text"
             :placeholder="placeholderString"
-            :value="inputValue"
-            @input="inputChangeHandler"
+            v-model="inputValue"
             @keypress.enter="addNewNote"
           />
         </div>
@@ -23,13 +27,20 @@
         <hr />
         <ul class="list" v-if="notes.length !== 0">
           <li class="list-item" v-for="(note, i) in notes">
-            {{ note }}
+            <span :class="{'primary': true, 'bold': note.length > 3}"
+              >{{ note }}</span
+            >
             <button class="btn danger" @click="removeNote(i)">удалить</button>
           </li>
         </ul>
         <div v-else>Список заметок пуст</div>
         <hr />
-        <div><strong>Общее количество: {{ notes.length }}, удвоенное: {{ doubleCountComputed }}</strong></div>
+        <div>
+          <strong
+            >Общее количество: {{ notes.length }}, удвоенное: {{
+            doubleCountComputed }}</strong
+          >
+        </div>
       </div>
     </div>
 
