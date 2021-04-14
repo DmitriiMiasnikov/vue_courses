@@ -1,6 +1,7 @@
 const App = {
   data: () => ({
-    title: 'Заголовок'
+    title: 'Заголовок',
+    myHtml: '<h1>vue 2 lesson</h1>'
   })
 }
 
