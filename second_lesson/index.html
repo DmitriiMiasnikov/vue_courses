@@ -13,11 +13,21 @@
   <body>
     <div class="container" id="app" v-cloak>
       <div class="card center">
-        <div v-html="myHtml"></div>
+        <!-- <div v-html="myHtml"></div>
         <h2 v-text="title"></h2>
         <h2 v-once>{{ title }}</h2>
         <h2 v-pre>{{ title }}</h2>
-        <button class='btn' @click="title='asdasd'" >изменить тайтл</button>
+        <button class='btn' @click="title='asdasd'" >изменить тайтл</button> -->
+
+        <ul class="list" v-if="items.length">
+          <li class="list-item" v-for="(item, i) in items" @click="items.splice(i, 1)" :key="item">
+            {{ item }} <input @click.stop>
+          </li>
+          <!-- <il class="list-item" v-for="(value, key) in person">
+            {{ key }} {{ value }}
+          </il> -->
+        </ul>
+        <h3 v-show="items.length === 0">Элементов нет</h3>
       </div>
     </div>
 
